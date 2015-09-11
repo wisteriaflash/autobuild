@@ -1,0 +1,43 @@
+$faq-ico-arrow: -133px -72px 8px 14px;
+$faq-ico-bubble: -152px -71px 48px 44px;
+$faq-ico-exam: -4px -72px 58px 61px;
+$faq-ico-filter: -70px -72px 55px 61px;
+$faq-ico-interview-last: -4px -4px 66px 60px;
+$faq-ico-interview: -78px -4px 66px 56px;
+$faq-ico-online-test: -152px -4px 56px 59px;
+
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 3);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 4);
+}
+
+@function sprite-width($sprite) {
+  @return nth($sprite, 3);
+}
+
+@function sprite-height($sprite) {
+  @return nth($sprite, 4);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 1);
+  $sprite-offset-y: nth($sprite, 2);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite($sprite) {
+  @include sprite-position($sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+.faq-sprite {
+  background-image: url('/sprite-faq.png.png');
+}
+
